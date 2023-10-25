@@ -58,35 +58,42 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun conversion(option: Int) {
-        val temperatureValue = temperature.toDoubleOrNull() ?: return
-        var result: Double = 0.0
+        val temeratura = temperature.toDoubleOrNull() ?: return
+        var resultado: Double = 0.0
+        var unidad: String = ""
 
         when (option) {
             0 -> {
                 //Aqui meter las formulas
-                result = (temperatureValue * 9/5) + 32
+                resultado = (temeratura * 9/5) + 32
+                unidad = "°F"
             }
             1 -> {
-                result = temperatureValue + 273.15
+                resultado = temeratura + 273.15
+                unidad = "°K"
 
             }
             2 -> {
-                result = (temperatureValue - 32) * 5/9
+                resultado = (temeratura - 32) * 5/9
+                unidad = "°C"
 
             }
             3 -> {
-                result = (temperatureValue + 459.67) * 5/9
+                resultado = (temeratura + 459.67) * 5/9
+                unidad = "°K"
 
             }
             4 -> {
-                result = temperatureValue - 273.15
+                resultado = temeratura - 273.15
+                unidad = "°C"
             }
             5 -> {
-                result = (temperatureValue * 9/5) - 459.67
+                resultado = (temeratura * 9/5) - 459.67
+                unidad = "°F"
 
             }
         }
         val resultTextView = findViewById<TextView>(R.id.textView2)
-        resultTextView.text = "Resultado: $result"
+        resultTextView.text = "Resultado: $resultado $unidad"
     }
 }
